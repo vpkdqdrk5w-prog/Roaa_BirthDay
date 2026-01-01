@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عيد ميلاد سعيد</title>
+<title>عيد ميلاد الروؤه</title>
 <style>
   body {
     font-family: 'Arial', sans-serif;
@@ -11,17 +11,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
     padding: 20px;
   }
 
+  .cake-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
   img {
-    max-width: 80%;
+    max-width: 90%;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
+  }
+
+  #message {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff1493;
+    display: none;
+  }
+
+  #reply-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: none;
+  }
+
+  #reply {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff4500;
   }
 
   button {
@@ -32,59 +59,51 @@
     cursor: pointer;
     background: #ff69b4;
     color: white;
-    margin: 10px;
     transition: all 0.3s ease;
   }
 
   button:hover {
     background: #ff1493;
   }
-
-  #message, #reply {
-    margin-top: 20px;
-    font-size: 32px;
-    font-weight: bold;
-    color: #ff1493;
-    text-align: center;
-    display: none;
-  }
-
-  #reply {
-    font-size: 28px;
-    color: #ff4500;
-  }
 </style>
 </head>
 <body>
 
-<!-- صورة الشمعة مضاءة -->
-<img id="cake" src="https://bentocakesnoida.in/cdn/shop/files/2024_01_01_19_54_IMG_9999_0188bb8b-6ee4-4366-8be2-495892f3b67d.jpg?v=1718281835&width=1400" alt="Birthday Cake">
+<div class="cake-container">
+  <img src="images/cacke.png" alt="Birthday Cake">
+  <div id="message">كل سنة وانتِ طيبة يا روووؤه 💖</div>
+</div>
 
 <button id="blowCandleBtn">طفي الشمعة 🎂</button>
 
-<div id="message">كل سنة وانتِ طيبة يا روووؤه 💖</div>
-<button id="replyBtn" style="display:none;">يلا نرد</button>
-
-<div id="reply">وانت طيب يا سعدوون 🎉</div>
+<div id="reply-container">
+  <button id="replyBtn">دوسي عليا</button>
+  <div id="reply">وانت طيب يا سعدون 🎉</div>
+  <button id="copyBtn">كوبي</button>
+</div>
 
 <script>
   const blowBtn = document.getElementById('blowCandleBtn');
   const message = document.getElementById('message');
+  const replyContainer = document.getElementById('reply-container');
   const replyBtn = document.getElementById('replyBtn');
   const reply = document.getElementById('reply');
-  const cake = document.getElementById('cake');
+  const copyBtn = document.getElementById('copyBtn');
 
   blowBtn.addEventListener('click', () => {
-    // غير الصورة للشمع مطفأ
-    cake.src = "https://bentocakesnoida.in/cdn/shop/files/2024_01_01_19_54_IMG_9999_0188bb8b-6ee4-4366-8be2-495892f3b67d.jpg?v=1718281835&width=1400";
     message.style.display = 'block';
-    replyBtn.style.display = 'inline-block';
+    replyContainer.style.display = 'flex';
     blowBtn.style.display = 'none';
   });
 
   replyBtn.addEventListener('click', () => {
     reply.style.display = 'block';
-    replyBtn.style.display = 'none';
+  });
+
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(reply.textContent)
+      .then(() => alert("تم نسخ النص! 📋"))
+      .catch(err => console.log("خطأ في النسخ: ", err));
   });
 </script>
 
