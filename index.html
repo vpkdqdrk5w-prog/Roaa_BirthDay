@@ -1,81 +1,88 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>كل سنة وانتي طيبة يا رووؤه</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عيد ميلاد سعيد</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #fff0f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ffe0e6, #fff5f7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Cairo", Arial, sans-serif;
-    }
+  img {
+    max-width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+  }
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 22px;
-      text-align: center;
-      width: 90%;
-      max-width: 420px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
+  button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff69b4;
+    color: white;
+    margin: 10px;
+    transition: all 0.3s ease;
+  }
 
-    h1 {
-      font-size: 28px;
-      color: #ff4d6d;
-      margin-bottom: 20px;
-    }
+  button:hover {
+    background: #ff1493;
+  }
 
-    .cake {
-      width: 100%;
-      max-width: 260px;
-      margin: 0 auto 25px;
-      display: block;
-    }
+  #message, #reply {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff1493;
+    text-align: center;
+    display: none;
+  }
 
-    button {
-      background: #ff4d6d;
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      font-size: 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,77,109,0.4);
-    }
-  </style>
+  #reply {
+    font-size: 28px;
+    color: #ff4500;
+  }
+</style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>🎉 كل سنة وانتي طيبة يا رووؤه 🎉</h1>
+<img src="https://media.istockphoto.com/id/1390239871/vector/birthday-cake-set.jpg?s=612x612&w=0&k=20&c=3sI3pS_QnOZq9l5K1C4ox5PyD9vA3qk0WqQfT5UOgxk=" alt="Big Birthday Cake">
 
-    <!-- صورة التورتة -->
-    <img
-      class="cake"
-      src="https://images.unsplash.com/photo-1603532648955-039310d9ed75"
-      alt="Birthday Cake"
-    />
+<button id="blowCandleBtn">طفي الشمعة 🎂</button>
 
-    <button onclick="showMessage()">يلا نرد 💖</button>
-  </div>
+<div id="message">كل سنة وانتِ طيبة يا روووؤه 💖</div>
+<button id="replyBtn" style="display:none;">يلا نرد</button>
 
-  <script>
-    function showMessage() {
-      alert("وانت طيب يا سعدوون ❤️");
-    }
-  </script>
+<div id="reply">وانت طيب يا سعدوون 🎉</div>
+
+<script>
+  const blowBtn = document.getElementById('blowCandleBtn');
+  const message = document.getElementById('message');
+  const replyBtn = document.getElementById('replyBtn');
+  const reply = document.getElementById('reply');
+
+  blowBtn.addEventListener('click', () => {
+    message.style.display = 'block';
+    replyBtn.style.display = 'inline-block';
+    blowBtn.style.display = 'none';
+  });
+
+  replyBtn.addEventListener('click', () => {
+    reply.style.display = 'block';
+    replyBtn.style.display = 'none';
+  });
+</script>
 
 </body>
 </html>
