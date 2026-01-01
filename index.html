@@ -18,42 +18,48 @@
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
+    width: 300px; /* تصغير الصورة */
   }
 
-  img {
-    max-width: 90%;
+  .cake-container img {
+    width: 100%;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
 
   #message {
     position: absolute;
-    top: 20px;
+    top: 10px;
     width: 100%;
     text-align: center;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
     color: #ff1493;
     display: none;
   }
 
   #reply-container {
-    margin-top: 20px;
-    display: flex;
+    margin-top: 15px;
+    display: none;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
-    display: none;
   }
 
   #reply {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
     color: #ff4500;
+    display: none;
+  }
+
+  #copyBtn {
+    background: #4caf50;
   }
 
   button {
-    padding: 12px 25px;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-size: 16px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -63,7 +69,7 @@
   }
 
   button:hover {
-    background: #ff1493;
+    filter: brightness(0.9);
   }
 </style>
 </head>
@@ -71,14 +77,14 @@
 
 <div class="cake-container">
   <img src="images/cacke.png" alt="Birthday Cake">
-  <div id="message">كل سنة وانتِ طيبة يا روووؤه 💖</div>
+  <div id="message">💖💖💖 كل سنة وانتِ طيبة يا روووؤه</div>
 </div>
 
 <button id="blowCandleBtn">طفي الشمعة 🎂</button>
 
 <div id="reply-container">
   <button id="replyBtn">دوسي عليا</button>
-  <div id="reply">وانت طيب يا سعدون 🎉</div>
+  <div id="reply">وانت طيب يا سعدون</div>
   <button id="copyBtn">كوبي</button>
 </div>
 
