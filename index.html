@@ -1,94 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>عيد ميلاد الروؤه</title>
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
   body {
     font-family: 'Arial', sans-serif;
     background: #fff0f5;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     padding: 20px;
-    text-align: center;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
   }
 
   .cake-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-block;
     margin-bottom: 20px;
-    width: 100%;
   }
 
-  .cake-container img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+  img {
+    max-width: 90%;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    display: block;
   }
 
   #message {
     position: absolute;
     top: 20px;
-    left: 0;
-    right: 0;
+    width: 100%;
     text-align: center;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     color: #ff1493;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
     display: none;
-    z-index: 2;
   }
 
   #reply-container {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: none;
   }
 
   #reply {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     color: #ff4500;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    width: 100%;
-    display: none;
   }
 
   button {
-    padding: 12px 24px;
+    padding: 12px 25px;
     font-size: 18px;
     border: none;
     border-radius: 10px;
@@ -96,46 +60,26 @@
     background: #ff69b4;
     color: white;
     transition: all 0.3s ease;
-    width: 100%;
-    max-width: 300px;
-    margin: 5px 0;
   }
 
   button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-
-  #copyBtn {
-    background: #4caf50;
-  }
-
-  .buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
+    background: #ff1493;
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="cake-container">
-    <img src="images/cacke.png" alt="Birthday Cake" onerror="this.src='https://via.placeholder.com/300x200/ffb6c1/000000?text=🎂+عيد+ميلاد+سعيد'">
-    <div id="message">💖💖💖 كل سنة وانتِ طيبة يا روووؤه</div>
-  </div>
+<div class="cake-container">
+  <img src="images/cacke.png" alt="Birthday Cake">
+  <div id="message"> 💖💖💖 كل سنة وانتِ طيبة يا روووؤه</div>
+</div>
 
-  <div class="buttons-container">
-    <button id="blowCandleBtn">طفي الشمعة 🎂</button>
-    
-    <div id="reply-container">
-      <button id="replyBtn">دوسي عليا</button>
-      <div id="reply">وانت طيب يا سعدون</div>
-      <button id="copyBtn">نسخ الرد</button>
-    </div>
-  </div>
+<button id="blowCandleBtn">طفي الشمعة 🎂</button>
+
+<div id="reply-container">
+  <button id="replyBtn">دوسي عليا</button>
+  <div id="reply">وانت طيب يا سعدون</div>
+  <button id="copyBtn">كوبي</button>
 </div>
 
 <script>
@@ -146,44 +90,20 @@
   const reply = document.getElementById('reply');
   const copyBtn = document.getElementById('copyBtn');
 
-  // تحميل الصفحة
-  window.addEventListener('load', () => {
-    console.log('الصفحة محملة بنجاح');
-  });
-
-  // حدث طفي الشمعة
   blowBtn.addEventListener('click', () => {
     message.style.display = 'block';
     replyContainer.style.display = 'flex';
     blowBtn.style.display = 'none';
   });
 
-  // حدث عرض الرد
   replyBtn.addEventListener('click', () => {
     reply.style.display = 'block';
-    replyBtn.style.display = 'none';
   });
 
-  // حدث نسخ النص
   copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(reply.textContent)
-      .then(() => {
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = "✓ تم النسخ!";
-        copyBtn.style.background = '#2e7d32';
-        
-        setTimeout(() => {
-          copyBtn.textContent = originalText;
-          copyBtn.style.background = '#4caf50';
-        }, 2000);
-      })
-      .catch(err => {
-        console.log("خطأ في النسخ: ", err);
-        copyBtn.textContent = "❌ خطأ في النسخ";
-        setTimeout(() => {
-          copyBtn.textContent = "نسخ الرد";
-        }, 2000);
-      });
+      .then(() => alert("تم نسخ النص! 📋"))
+      .catch(err => console.log("خطأ في النسخ: ", err));
   });
 </script>
 
