@@ -57,12 +57,13 @@
 </head>
 <body>
 
-<img src="https://media.istockphoto.com/id/1390239871/vector/birthday-cake-set.jpg?s=612x612&w=0&k=20&c=3sI3pS_QnOZq9l5K1C4ox5PyD9vA3qk0WqQfT5UOgxk=" alt="Big Birthday Cake">
+<!-- صورة الشمعة مضاءة -->
+<img id="cake" src="https://i.postimg.cc/Bnmr2xZW/birthday-cake-candle-on.jpg" alt="Birthday Cake">
 
 <button id="blowCandleBtn">طفي الشمعة 🎂</button>
 
 <div id="message">كل سنة وانتِ طيبة يا روووؤه 💖</div>
-<button id="replyBtn" style="display:none;">يلا نرد بقي</button>
+<button id="replyBtn" style="display:none;">يلا نرد</button>
 
 <div id="reply">وانت طيب يا سعدوون 🎉</div>
 
@@ -71,8 +72,11 @@
   const message = document.getElementById('message');
   const replyBtn = document.getElementById('replyBtn');
   const reply = document.getElementById('reply');
+  const cake = document.getElementById('cake');
 
   blowBtn.addEventListener('click', () => {
+    // غير الصورة للشمع مطفأ
+    cake.src = "https://i.postimg.cc/ZqH6XkjP/birthday-cake-candle-off.jpg";
     message.style.display = 'block';
     replyBtn.style.display = 'inline-block';
     blowBtn.style.display = 'none';
