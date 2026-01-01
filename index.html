@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>كل سنة وانتي طيبة يا روي</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>كل سنة وانتي طيبة يا رووؤه</title>
 
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffe0e6, #fff5f7);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -18,54 +18,64 @@
 
     .card {
       background: white;
-      padding: 30px 25px;
-      border-radius: 20px;
+      padding: 25px;
+      border-radius: 22px;
       text-align: center;
       width: 90%;
-      max-width: 400px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 420px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
 
     h1 {
-      font-size: 26px;
-      color: #ff5e78;
-      margin-bottom: 15px;
+      font-size: 28px;
+      color: #ff4d6d;
+      margin-bottom: 20px;
     }
 
-    p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 25px;
+    .cake {
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto 25px;
+      display: block;
     }
 
-    a.button {
-      display: inline-block;
-      text-decoration: none;
-      background: #ff5e78;
+    button {
+      background: #ff4d6d;
       color: white;
-      padding: 14px 24px;
+      border: none;
+      padding: 14px 28px;
+      font-size: 18px;
       border-radius: 30px;
-      font-size: 16px;
+      cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    a.button:hover {
+    button:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,94,120,0.4);
+      box-shadow: 0 8px 20px rgba(255,77,109,0.4);
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>🎉 كل سنة وانتي طيبة يا روي 🎉</h1>
-    <p>أتمنى أيامك الجاية تبقى أحن وأجمل 🌸</p>
+    <h1>🎉 كل سنة وانتي طيبة يا رووؤه 🎉</h1>
 
-    <!-- غير اللينك ده -->
-    <a class="button" href="https://www.google.com" target="_blank">
-      اضغطي هنا 💖
-    </a>
+    <!-- صورة التورتة -->
+    <img
+      class="cake"
+      src="https://images.unsplash.com/photo-1603532648955-039310d9ed75"
+      alt="Birthday Cake"
+    />
+
+    <button onclick="showMessage()">يلا نرد 💖</button>
   </div>
+
+  <script>
+    function showMessage() {
+      alert("وانت طيب يا سعدوون ❤️");
+    }
+  </script>
 
 </body>
 </html>
